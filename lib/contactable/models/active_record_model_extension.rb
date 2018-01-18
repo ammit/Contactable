@@ -1,12 +1,16 @@
-module Sortable
+module Contactable
   module ActiveRecordModelExtension
     extend ActiveSupport::Concern
 
-    included do
-      def self.sort(sort='created_at', direction='desc')
-        sort = 'created_at' unless sort.present?
-        direction = 'desc' unless direction.present?
-        order(sort + " " + direction)
+    class_methods do
+      def has_contacts
+        has_many :contacts, as: :contactable, dependent: :destroy
+
+        accepts_nested_attributes_for :contacts, allow_destroy: true
+
+        after_initialize do |record|
+          record.contacts.build if record.contacts.count <= 0
+        end
       end
     end
   end

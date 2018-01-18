@@ -1,4 +1,4 @@
-module Sortable
+module Contactable
   module ActionViewExtension
     def contactable(column, title = nil)
       title ||= column.titleize
