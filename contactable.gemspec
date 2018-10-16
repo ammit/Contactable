@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'contactable'
-  s.version     = '0.0.8'
+  s.version     = '0.0.9'
   s.date        = '2017-09-20'
   s.summary     = "Contactable!"
   s.description = "A simple Sortable gem"
